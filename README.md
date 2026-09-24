@@ -66,6 +66,8 @@ Requirements: Node.js 22+, macOS/Linux ARM64 or x64, `ps`, `lsof`, `tar`, Intern
 
 3. Ask it to share the current app if needed. Once the tunnel is verified, your agent returns a temporary public HTTPS URL that you can open in a browser or share with someone else.
 
+> **Note:** Your app may take a few seconds to appear at the public URL while Cloudflare finishes establishing the tunnel and DNS becomes available to your browser. If it does not load immediately, wait a moment and refresh the page.
+
 You can also ask in plain language:
 
 > Share this project with a public URL using Tunnel.
