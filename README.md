@@ -6,19 +6,49 @@ Give a local application a temporary public HTTPS URL through an Agent Skill.
 
 ## Install
 
-From GitHub:
+Run the command for your agent from the project where you want to use Tunnel.
+
+### Codex
 
 ```sh
 npx skills@1.7.0 add HarysVizcaino/tunnel-skill --skill tunnel --agent codex --copy
 ```
 
-Or from a local checkout:
+Then invoke `$tunnel` in Codex.
+
+### Claude Code
 
 ```sh
-npx skills@1.7.0 add /absolute/path/to/tunnel-skills --skill tunnel --agent codex --copy
+npx skills@1.7.0 add HarysVizcaino/tunnel-skill --skill tunnel --agent claude-code --copy
 ```
 
-Add `-g` for user-wide installation; select `--agent claude-code` for Claude Code. Source repository: [HarysVizcaino/tunnel-skill](https://github.com/HarysVizcaino/tunnel-skill).
+Then invoke `/tunnel` in Claude Code.
+
+### Install for all your projects
+
+Add `-g` for user-wide installation:
+
+```sh
+# Codex
+npx skills@1.7.0 add HarysVizcaino/tunnel-skill --skill tunnel --agent codex --copy -g
+
+# Claude Code
+npx skills@1.7.0 add HarysVizcaino/tunnel-skill --skill tunnel --agent claude-code --copy -g
+```
+
+### Install from a local checkout
+
+```sh
+# Codex
+npx skills@1.7.0 add /absolute/path/to/tunnel-skills --skill tunnel --agent codex --copy
+
+# Claude Code
+npx skills@1.7.0 add /absolute/path/to/tunnel-skills --skill tunnel --agent claude-code --copy
+```
+
+Source repository: [HarysVizcaino/tunnel-skill](https://github.com/HarysVizcaino/tunnel-skill).
+
+### Requirements
 
 Requirements: Node.js 22+, macOS/Linux ARM64 or x64, `ps`, `lsof`, `tar`, Internet access and permission to run local background servers. Framework dependencies must already be installed. The first start downloads a pinned official `cloudflared`; no Cloudflare account, sudo or PATH modification is needed.
 
