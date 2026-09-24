@@ -52,9 +52,49 @@ Source repository: [HarysVizcaino/tunnel-skill](https://github.com/HarysVizcaino
 
 Requirements: Node.js 22+, macOS/Linux ARM64 or x64, `ps`, `lsof`, `tar`, Internet access and permission to run local background servers. Framework dependencies must already be installed. The first start downloads a pinned official `cloudflared`; no Cloudflare account, sudo or PATH modification is needed.
 
-## Use
+## How to use it
 
-In Codex, invoke `$tunnel`; in Claude Code use `/tunnel`. You can also ask to share the current local app publicly. To use the executable directly:
+### Share your project
+
+1. Open your project directory in **Claude Code** or **Codex**, with Tunnel installed for that project or globally.
+2. In the agent's chat, invoke the skill:
+
+   | Agent | Invocation |
+   |---|---|
+   | Claude Code | `/tunnel` |
+   | Codex | `$tunnel` |
+
+3. Ask it to share the current app if needed. Once the tunnel is verified, your agent returns a temporary public HTTPS URL that you can open in a browser or share with someone else.
+
+You can also ask in plain language:
+
+> Share this project with a public URL using Tunnel.
+
+For an app you already started on a specific port:
+
+> Use Tunnel to share my local app on port 3000.
+
+Keep your computer awake and the app and tunnel running while you use the URL.
+
+### Stop sharing
+
+In the same project, tell your agent:
+
+> Stop the public tunnel for this project.
+
+Or run the bundled script from your project directory, replacing the skill path with its installed location:
+
+```sh
+node /absolute/skill/scripts/tunnel.mjs --project "$PWD" --stop
+```
+
+This closes the tunnel and stops public access. **Your local app stays running.** To stop both, tell your agent:
+
+> Stop the tunnel and the local development server for this project.
+
+To share the project again, invoke `/tunnel` in Claude Code or `$tunnel` in Codex. A new tunnel may have a different URL.
+
+### Use the CLI directly
 
 ```sh
 node /absolute/skill/scripts/tunnel.mjs --project /path/to/app
