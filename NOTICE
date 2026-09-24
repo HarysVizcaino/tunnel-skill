@@ -1,0 +1,10 @@
+Tunnel is an independent project and is not endorsed by Cloudflare, OpenAI,
+Anthropic or Vercel. Their product names identify integration targets.
+
+cloudflared is downloaded separately from official Cloudflare releases; no
+cloudflared binary is included in this source package. Its license and notices
+are maintained at https://github.com/cloudflare/cloudflared . Review those
+terms and Cloudflare service terms before using the provider.
+
+The JavaScript core uses Node.js standard-library modules and has no bundled
+third-party npm dependencies. Development/installation tools are separate.

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "cases": [
+    {"id":"p01","split":"train","prompt":"Comparte esta app local con un enlace público temporal.","shouldLoad":true,"allowedAction":"start"},
+    {"id":"p02","split":"train","prompt":"Give localhost:3000 a public HTTPS URL.","shouldLoad":true,"allowedAction":"start"},
+    {"id":"p03","split":"train","prompt":"Necesito una URL pública para recibir webhooks en /api/webhooks/demo.","shouldLoad":true,"allowedAction":"start"},
+    {"id":"p04","split":"train","prompt":"$tunnel --status","shouldLoad":true,"allowedAction":"status"},
+    {"id":"p05","split":"train","prompt":"Detén el túnel de este proyecto y deja el servidor de desarrollo corriendo.","shouldLoad":true,"allowedAction":"stop"},
+    {"id":"p06","split":"train","prompt":"/tunnel --port 5173","shouldLoad":true,"allowedAction":"start"},
+    {"id":"p07","split":"validation","prompt":"Necesito enviarle a una compañera fuera de mi red un enlace temporal a esta app que corre aquí.","shouldLoad":true,"allowedAction":"start"},
+    {"id":"p08","split":"validation","prompt":"Is the Tunnel-managed link for this project still running? Don't create another one.","shouldLoad":true,"allowedAction":"status"},
+    {"id":"p09","split":"validation","prompt":"Generate a public webhook address for my existing server on port 8080. Do not send test events.","shouldLoad":true,"allowedAction":"start"},
+    {"id":"p10","split":"validation","prompt":"Shut down the public tunnel we opened for this folder.","shouldLoad":true,"allowedAction":"stop"},
+    {"id":"n01","split":"train","prompt":"Compila mi app.","shouldLoad":false,"allowedAction":"none"},
+    {"id":"n02","split":"train","prompt":"Open the local preview in my browser.","shouldLoad":false,"allowedAction":"none"},
+    {"id":"n03","split":"train","prompt":"Explícame qué es un túnel HTTP, sin ejecutar nada.","shouldLoad":false,"allowedAction":"none"},
+    {"id":"n04","split":"train","prompt":"Deploy permanently to my production domain.","shouldLoad":false,"allowedAction":"none"},
+    {"id":"n05","split":"train","prompt":"Añade una ruta POST para validar firmas de Stripe.","shouldLoad":false,"allowedAction":"none"},
+    {"id":"n06","split":"train","prompt":"Review the tunnel skill's documentation. Do not execute its scripts.","shouldLoad":true,"allowedAction":"none"},
+    {"id":"n07","split":"validation","prompt":"La app está lista. Resume los cambios que hiciste.","shouldLoad":false,"allowedAction":"none"},
+    {"id":"n08","split":"validation","prompt":"Make my database reachable through SSH.","shouldLoad":false,"allowedAction":"none"},
+    {"id":"n09","split":"validation","prompt":"Arregla el hot reload de Vite en localhost.","shouldLoad":false,"allowedAction":"none"},
+    {"id":"n10","split":"validation","prompt":"Write an example webhook payload; don't deliver it anywhere.","shouldLoad":false,"allowedAction":"none"}
+  ]
+}

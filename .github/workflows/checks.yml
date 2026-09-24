@@ -1,0 +1,27 @@
+name: Checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14]
+        node: [22, 24]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Ensure process inspection tools
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y lsof
+      - run: npm run validate
+      - run: npm run pack:skill
+      - uses: actions/upload-artifact@v4
+        with:
+          name: skill-${{ matrix.os }}-node-${{ matrix.node }}
+          path: dist/*.tgz
+  # Real tunnels are intentionally opt-in local integration checks, never PR jobs.
